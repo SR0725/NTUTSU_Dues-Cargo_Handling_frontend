@@ -1,0 +1,27 @@
+$max: 24;
+@for $i from 0 through $max {
+	.list-slide-#{$i}-enter {
+		opacity: 0;
+		transform: translateX(-300px);
+	}
+	.list-slide-#{$i}-enter-active {
+		opacity: 1;
+		transition: all 0.6s;
+		transition-delay: ($i / $max) * 1.2s;
+		transform: translateX(0px);
+	}
+	.list-slide-#{$i}-enter-done {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+
+	.list-slide-#{$i}-exit {
+		opacity: 1;
+	}
+	.list-slide-#{$i}-exit-active {
+		opacity: 0;
+	}
+	.list-slide-#{$i}-exit-done {
+		opacity: 0;
+	}
+}

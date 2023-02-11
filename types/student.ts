@@ -1,4 +1,4 @@
-import { Fee } from '@/model/fee';
+import { Fee } from 'types/fee';
 
 export type Student = {
 	id: string;

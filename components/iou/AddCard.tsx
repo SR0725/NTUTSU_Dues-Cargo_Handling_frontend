@@ -1,3 +1,5 @@
+// NOT FINISH!
+
 import React, { useState } from 'react';
 import {
 	Button,
@@ -12,8 +14,8 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import getRandomID from 'utils/getRandomID';
-import { Iou, LendStatus } from '@/model/iou';
-import { IouItem } from '@/model/IouItem';
+import { Iou, LendStatus } from 'types/iou';
+import { IouItem } from 'types/IouItem';
 
 interface AddCardProps {
 	setRefresh: React.Dispatch<React.SetStateAction<number>>;

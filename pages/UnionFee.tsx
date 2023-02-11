@@ -2,7 +2,7 @@ import AppHeadbar from '@/components/app/Headbar';
 import { Input } from '@material-tailwind/react';
 import StudentCardUnionFee from '@/components/student/CardUnionFee';
 import React, { useState } from 'react';
-import { Student } from '@/model/student';
+import { Student } from 'types/student';
 import { Button } from '@material-tailwind/react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -10,7 +10,7 @@ export default function UnionFee() {
 	const [students, setStudents] = useState<Student[]>([]);
 
 	const updateStudent = (id: string, newStudent: Student) => {
-		let newStudents = [...students].map((student) => ({
+		let newStudents = students.map((student) => ({
 			...student,
 			unionsFeeRecords: [...student.unionsFeeRecords],
 			otherRecords: [...student.otherRecords],

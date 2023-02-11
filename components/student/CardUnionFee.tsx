@@ -1,7 +1,7 @@
 import { Button, Chip } from '@material-tailwind/react';
 import CardBody from '@/components/student/CardBody';
-import { Fee } from '@/model/fee';
-import { Student } from '@/model/student';
+import { Fee } from 'types/fee';
+import { Student } from 'types/student';
 
 export default function StudentCardUnionFee(props: {
 	sid: string;

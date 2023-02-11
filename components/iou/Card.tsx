@@ -1,7 +1,10 @@
+// NOT FINISH!
+
+
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { RiImageAddLine } from 'react-icons/ri';
-import { Iou } from '@/model/iou';
+import { Iou } from 'types/iou';
 import {
 	Button,
 	Dialog,

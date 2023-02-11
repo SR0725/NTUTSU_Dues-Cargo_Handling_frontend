@@ -1,9 +1,11 @@
+// NOT FINISH!
+
 import AppHeadbar from '@/components/app/Headbar';
 import { Breadcrumbs } from '@material-tailwind/react';
 import React, { useState, useEffect } from 'react';
 import IouCard from '@/components/iou/Card';
 import AddCard from '@/components/iou/AddCard';
-import { Iou } from '@/model/iou';
+import { Iou } from 'types/iou';
 
 export default function OtherFee() {
 	const [ious, setIous] = useState<Iou[]>([]);
@@ -47,7 +49,7 @@ export default function OtherFee() {
 					))}
 				</div>
 			</div>
-			<AddCard setRefresh={setRefresh}/>
+			<AddCard setRefresh={setRefresh} />
 		</>
 	);
 }

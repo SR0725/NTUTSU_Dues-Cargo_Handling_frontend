@@ -1,5 +1,5 @@
-import { IouItem } from '@/model/IouItem';
-import { IouHistory } from '@/model/IouHistory';
+import { IouItem } from 'types/IouItem';
+import { IouHistory } from 'types/IouHistory';
 
 /** - 借據
  * @param id - 唯一辨識碼

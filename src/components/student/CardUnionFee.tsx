@@ -1,14 +1,13 @@
 import { Button, Chip } from '@material-tailwind/react';
 import CardBody from '@/components/student/CardBody';
-import { Fee } from 'types/fee';
-import { Student } from 'types/student';
+import { Fee } from '@/types/fee';
+import useStudents from '@/hooks/useStudents';
 
 export default function StudentCardUnionFee(props: {
 	sid: string;
 	studentClass: string;
 	studentName: string;
 	unionsFeeRecords: Fee[];
-	updateStudent: Function;
 }) {
 	return (
 		<CardBody
@@ -20,7 +19,6 @@ export default function StudentCardUnionFee(props: {
 				<FeeAddButton
 					unionsFeeRecords={props.unionsFeeRecords}
 					sid={props.sid}
-					updateStudent={props.updateStudent}
 				/>
 			}
 		/>
@@ -46,32 +44,8 @@ function FeeRecord(props: { unionsFeeRecords: Fee[] }) {
 	);
 }
 
-function FeeAddButton(props: {
-	unionsFeeRecords: Fee[];
-	sid: string;
-	updateStudent: Function;
-}) {
-	const addUnionFee = async () => {
-		let response = await fetch(
-			`http://localhost:8080/api/v1/student/union-fee/${props.sid}`,
-			{
-				method: 'POST',
-			}
-		);
-		let newStudent = await (response.json() as Promise<Student>);
-		props.updateStudent(props.sid, newStudent);
-	};
-
-	const deleteUnionFee = async () => {
-		let response = await fetch(
-			`http://localhost:8080/api/v1/student/union-fee/${props.sid}`,
-			{
-				method: 'DELETE',
-			}
-		);
-		let newStudent = await (response.json() as Promise<Student>);
-		props.updateStudent(props.sid, newStudent);
-	};
+function FeeAddButton(props: { unionsFeeRecords: Fee[]; sid: string }) {
+	const { addUnionFee, deleteUnionFee } = useStudents();
 
 	if (props.unionsFeeRecords.length) {
 		return (
@@ -79,7 +53,9 @@ function FeeAddButton(props: {
 				color='red'
 				size='sm'
 				className=' rounded-full ml-2'
-				onClick={deleteUnionFee}
+				onClick={() => {
+					deleteUnionFee(props.sid);
+				}}
 			>
 				移除繳費
 			</Button>
@@ -90,7 +66,9 @@ function FeeAddButton(props: {
 			color='green'
 			size='sm'
 			className=' rounded-full ml-2'
-			onClick={addUnionFee}
+			onClick={() => {
+				addUnionFee(props.sid);
+			}}
 		>
 			新增繳費
 		</Button>

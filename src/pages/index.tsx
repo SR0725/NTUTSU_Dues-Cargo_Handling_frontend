@@ -1,6 +1,6 @@
 import AppHeadbar from '@/components/app/Headbar';
 import { useAppSelector, useAppDispatch } from 'store/hooks';
-import { login, logout } from 'store/accountSlice';
+import { login, logout } from '@/store/accountSlice';
 
 export default function Home() {
 	const account = useAppSelector((state) => state.account);
